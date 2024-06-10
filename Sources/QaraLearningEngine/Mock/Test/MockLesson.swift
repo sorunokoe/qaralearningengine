@@ -9,34 +9,24 @@
 extension Lesson {
     
     static func mockS1() -> Lesson {
-        let sentenceTranslation: String = "Hi!"
-        let translation: [String: String] = ["Сәлем!": "Hi!"]
-        let sentence = Sentence(elements: ["Сәлем!"],
-                                translation: translation,
-                                sentenceTranslation: sentenceTranslation)
-        
-        return Lesson(sentence: sentence)
+        let word = Word(value: "Сәлем!",
+                        translation: "Hi!",
+                        example: .init(value: "Сәлем!", translation: "Hi!"))
+        return Lesson(word: word)
     }
     
     static func mockS2() -> Lesson {
-        let sentenceTranslation: String = "Heart"
-        let translation: [String: String] = ["Жүрек": "Heart"]
-        let elements: [String] = ["Жүрек"]
-        let sentence = Sentence(elements: elements,
-                                translation: translation,
-                                sentenceTranslation: sentenceTranslation)
-        return Lesson(sentence: sentence)
+        let word = Word(value: "Жүрек",
+                        translation: "Heart",
+                        example: .init(value: "Жүрек", translation: "Heart"))
+        return Lesson(word: word)
     }
     
     static func mockS3() -> Lesson {
-        let sentenceTranslation: String = "Hi!"
-        let translation: [String: String] = [
-            "Қалың қалай?": "How are you?"
-        ]
-        let sentence = Sentence(elements: ["Сәлем!", "Қалың қалай?"],
-                                translation: translation,
-                                sentenceTranslation: sentenceTranslation)
-        return Lesson(sentence: sentence)
+        let word = Word(value: "Қалың қалай?",
+                        translation: "How are you?",
+                        example: .init(value: "Қалың қалай?", translation: "How are you?"))
+        return Lesson(word: word)
     }
     
 }

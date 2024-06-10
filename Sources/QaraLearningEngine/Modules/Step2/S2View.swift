@@ -27,7 +27,7 @@ public struct S2View: StepView {
                         .resizable()
                         .frame(width: 32, height: 32)
                 })
-                Text(viewModel.lesson.sentence.value)
+                Text(viewModel.lesson.word.value)
                     .font(.system(size: 20, weight: .medium))
             }
             GeometryReader { geo in

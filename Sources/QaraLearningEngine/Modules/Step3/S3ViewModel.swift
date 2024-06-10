@@ -65,15 +65,16 @@ extension S3View {
         }
         
         func getStyle(for element: String) -> Color {
-            guard (lesson.sentence.translation[element] != nil) else { return .black }
-            return .purple
+//            guard (lesson.sentence.translation[element] != nil) else { return .black }
+            return .black
+//            return .purple
         }
         
         func selectForTranslation(word: String) {
-            if let translation = lesson.sentence.translation[word] {
-                selectedTranslation = (word, translation)
-                isTranslationToShow = true
-            }
+//            if let translation = lesson.sentence.translation[word] {
+//                selectedTranslation = (word, translation)
+//                isTranslationToShow = true
+//            }
         }
     }
     

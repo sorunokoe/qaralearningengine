@@ -41,15 +41,13 @@ public struct S3View: StepView {
                             .frame(width: 32, height: 32)
                     })
                     HStack(alignment: .center, spacing: 4) {
-                        ForEach(viewModel.lesson.sentence.elements, id: \.self) { word in
-                            Text(word)
-                                .font(.system(size: 20, weight: .medium))
-                                .foregroundStyle(viewModel.getStyle(for: word))
-                                .onTapGesture {
-                                    viewModel.selectForTranslation(word: word)
-                                }
-                                .frame(height: 11)
-                        }
+                        Text(viewModel.lesson.word.value)
+                            .font(.system(size: 20, weight: .medium))
+                            .foregroundStyle(.black)
+                            .onTapGesture {
+                                
+                            }
+                            .frame(height: 11)
                     }
                 }
                 .frame(maxWidth: .infinity)
