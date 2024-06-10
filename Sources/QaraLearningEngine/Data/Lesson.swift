@@ -7,24 +7,19 @@
 
 import Foundation
 
-
-enum Language {
-    case rus, eng
-}
-
 struct Sentence {
     var value: String
     var elements: [String]
-    var translations: [String: [Language: String]]
-    var sentenceTranslation: [Language: String]
+    var translation: [String: String]
+    var sentenceTranslation: String
     
     
     init(elements: [String], 
-         translations: [String: [Language: String]],
-         sentenceTranslation: [Language: String]) {
+         translation: [String: String],
+         sentenceTranslation: String) {
         self.value = elements.joined(separator: " ")
         self.elements = elements
-        self.translations = translations
+        self.translation = translation
         self.sentenceTranslation = sentenceTranslation
     }
 }

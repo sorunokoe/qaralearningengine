@@ -9,50 +9,32 @@
 extension Lesson {
     
     static func mockS1() -> Lesson {
-        let sentenceTranslation: [Language: String] = [
-            .eng: "Hi!",
-            .rus: "Привет!"
-        ]
-        let translations: [String: [Language: String]] = ["Сәлем!": [
-            .eng: "Hi!",
-            .rus: "Привет!"
-        ]]
+        let sentenceTranslation: String = "Hi!"
+        let translation: [String: String] = ["Сәлем!": "Hi!"]
         let sentence = Sentence(elements: ["Сәлем!"],
-                                translations: translations,
+                                translation: translation,
                                 sentenceTranslation: sentenceTranslation)
         
         return Lesson(sentence: sentence)
     }
     
     static func mockS2() -> Lesson {
-        let sentenceTranslation: [Language: String] = [
-            .eng: "Heart",
-            .rus: "Сердце"
-        ]
-        let translations: [String: [Language: String]] = ["Жүрек": [
-            .eng: "Heart",
-            .rus: "Сердце"
-        ]]
+        let sentenceTranslation: String = "Heart"
+        let translation: [String: String] = ["Жүрек": "Heart"]
         let elements: [String] = ["Жүрек"]
         let sentence = Sentence(elements: elements,
-                                translations: translations,
+                                translation: translation,
                                 sentenceTranslation: sentenceTranslation)
         return Lesson(sentence: sentence)
     }
     
     static func mockS3() -> Lesson {
-        let sentenceTranslation: [Language: String] = [
-            .eng: "Hi!",
-            .rus: "Привет!"
-        ]
-        let translations: [String: [Language: String]] = [
-            "Қалың қалай?": [
-                .eng: "How are you?",
-                .rus:"Как твои дела?"
-            ],
+        let sentenceTranslation: String = "Hi!"
+        let translation: [String: String] = [
+            "Қалың қалай?": "How are you?"
         ]
         let sentence = Sentence(elements: ["Сәлем!", "Қалың қалай?"],
-                                translations: translations,
+                                translation: translation,
                                 sentenceTranslation: sentenceTranslation)
         return Lesson(sentence: sentence)
     }

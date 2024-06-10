@@ -56,7 +56,7 @@ struct NavigationView: View {
                         .environmentObject(coordinator)
                         .navigationBarBackButtonHidden()
                 case .congrats:
-                    CongratulationView()
+                    Text("Heey good job!")
                         .environmentObject(coordinator)
                         .navigationBarBackButtonHidden()
                 }
