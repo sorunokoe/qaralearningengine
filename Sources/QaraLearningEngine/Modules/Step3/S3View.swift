@@ -102,17 +102,19 @@ public struct S3View: StepView {
         .sheet(isPresented: $viewModel.isPopupToShow, onDismiss: {
             viewModel.didFinish()
         }, content: {
-            ResultSheetView(
-                type: .warning,
-                didSubmit: {
-                    viewModel.isPopupToShow = false
-                    viewModel.reset()
-                },
-                sheetContentHeight: $viewModel.sheetContentHeight
-            )
-            .presentationDetents([.height(viewModel.sheetContentHeight)])
-            .presentationDragIndicator(.automatic)
-            .interactiveDismissDisabled()
+            if let isCorrectAnswer = viewModel.isCorrectAnswer {
+                ResultSheetView(
+                    type: isCorrectAnswer ? .success : .failure(correctAnswer: viewModel.method.answer),
+                    didSubmit: {
+                        viewModel.isPopupToShow = false
+                        viewModel.reset()
+                    },
+                    sheetContentHeight: $viewModel.sheetContentHeight
+                )
+                .presentationDetents([.height(viewModel.sheetContentHeight)])
+                .presentationDragIndicator(.automatic)
+                .interactiveDismissDisabled()
+            }
         })
         .sheet(isPresented: $viewModel.isTranslationToShow, content: {
             if let item = viewModel.selectedTranslation {
