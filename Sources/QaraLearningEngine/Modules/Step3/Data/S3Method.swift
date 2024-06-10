@@ -9,14 +9,16 @@ import Foundation
 
 public struct S3Method {
     let voice: String
+    let value: String
     let answer: String
     let variants: [String]
     let title: String
     let icon: String
     var isNewWord: Bool = false
     
-    public init(voice: String, answer: String, variants: [String], title: String, icon: String, isNewWord: Bool) {
+    public init(voice: String, value: String, answer: String, variants: [String], title: String, icon: String, isNewWord: Bool) {
         self.voice = voice
+        self.value = value
         self.answer = answer
         self.variants = variants
         self.title = title

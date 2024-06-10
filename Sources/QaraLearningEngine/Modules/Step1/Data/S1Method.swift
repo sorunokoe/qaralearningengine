@@ -9,6 +9,7 @@ import Foundation
 
 public struct S1Method {
     let voice: String
+    let value: String
     let answer: String
     let variants: [String]
     let title: String

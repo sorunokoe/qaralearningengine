@@ -41,7 +41,7 @@ public struct S3View: StepView {
                             .frame(width: 32, height: 32)
                     })
                     HStack(alignment: .center, spacing: 4) {
-                        Text(viewModel.lesson.word.value)
+                        Text(viewModel.method.value)
                             .font(.system(size: 20, weight: .medium))
                             .foregroundStyle(.black)
                             .onTapGesture {
