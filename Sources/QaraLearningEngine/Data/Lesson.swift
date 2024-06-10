@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Sentence {
+public struct Sentence {
     var value: String
     var elements: [String]
     var translation: [String: String]
     var sentenceTranslation: String
     
     
-    init(elements: [String], 
+    public init(elements: [String], 
          translation: [String: String],
          sentenceTranslation: String) {
         self.value = elements.joined(separator: " ")
@@ -24,12 +24,11 @@ struct Sentence {
     }
 }
 
-struct Explanation {
-    var value: String
-    var examples: [String]
-}
 
-
-struct Lesson {
+public struct Lesson {
     let sentence: Sentence
+    
+    public init(sentence: Sentence) {
+        self.sentence = sentence
+    }
 }
