@@ -25,8 +25,8 @@ import Foundation
 //}
 
 public struct Example {
-    var value: String
-    var translation: String
+    public var value: String
+    public var translation: String
     
     public init(value: String, translation: String) {
         self.value = value
@@ -35,9 +35,9 @@ public struct Example {
 }
 
 public struct Word {
-    var value: String
-    var translation: String
-    var example: Example?
+    public var value: String
+    public var translation: String
+    public var example: Example?
     
     public init(value: String, translation: String, example: Example? = nil) {
         self.value = value
@@ -47,7 +47,7 @@ public struct Word {
 }
 
 public struct Lesson {
-    let word: Word
+    public let word: Word
     
     public init(word: Word) {
         self.word = word
