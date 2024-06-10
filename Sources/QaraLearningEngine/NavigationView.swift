@@ -27,20 +27,20 @@ public struct LearningPlan {
     }
 }
 
-struct QaraLearningEngineView: View {
+public struct QaraLearningEngineView: View {
     private let navigator = DefaultNavigator()
     @State private var stepViews: [any View] = []
     
     private let plan: [LearningPlan]
     let onDidFinish: (FlowResult) -> Void
     
-    init(plan: [LearningPlan],
+    public init(plan: [LearningPlan],
          onDidFinish: @escaping (FlowResult) -> Void) {
         self.plan = plan
         self.onDidFinish = onDidFinish
     }
 
-    var body: some View {
+    public var body: some View {
         FlowView(stepViews: stepViews, 
                  navigator: navigator,
                  onDidFinish: onDidFinish)
