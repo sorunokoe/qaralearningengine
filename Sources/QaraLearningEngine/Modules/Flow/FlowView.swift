@@ -15,13 +15,13 @@ public struct FlowView: View {
     @State private var currentView: (any View)?
     @State private var currentIndex: Int = 0
     
-    @EnvironmentObject var coordinator: Coordinator
+    let onDidFinish: (FlowResult) -> Void
     
     public var body: some View {
         VStack {
             HStack {
                 Button(action: {
-                    coordinator.navPath.removeLast(coordinator.navPath.count)
+                    onDidFinish(.failed)
                 }, label: {
                     Image(systemName: "xmark")
                         .resizable()
@@ -58,7 +58,7 @@ public struct FlowView: View {
                         currentView = stepViews[currentIndex]
                     }
                 } else {
-                    coordinator.navPath.append(Route.congrats)
+                    onDidFinish(.success)
                 }
             }
         }
@@ -78,5 +78,5 @@ public struct FlowView: View {
         S3View(viewModel: S3View.ViewModel(lesson: Lesson.mockS3(),
                                                   method: S3Method.mock(),
                                                   navigator: navigator))
-    ], navigator: navigator)
+    ], navigator: navigator, onDidFinish: { _ in })
 }
