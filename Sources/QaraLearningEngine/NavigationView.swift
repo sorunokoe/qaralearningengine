@@ -41,40 +41,42 @@ public struct QaraLearningEngineView: View {
     }
 
     public var body: some View {
-        FlowView(stepViews: stepViews, 
+        FlowView(stepViews: plan.flatMap { item in
+            var views: [any View] = [
+                S1View(viewModel: S1View.ViewModel(
+                    lesson: item.lesson,
+                    method: item.method1,
+                    navigator: navigator
+                )),
+            ]
+            if let method2 = item.method2 {
+                views.append(S2View(viewModel: S2View.ViewModel(
+                    lesson: item.lesson,
+                    method: method2,
+                    navigator: navigator
+                )))
+            }
+            if let method3 = item.method3 {
+                views.append(S3View(viewModel: S3View.ViewModel(
+                    lesson: item.lesson,
+                    method: method3,
+                    navigator: navigator
+                )))
+            }
+            return views
+        },
                  navigator: navigator,
                  onDidFinish: onDidFinish)
-            .onAppear {
-                self.stepViews = plan.flatMap { item in
-                    var views: [any View] = [
-                        S1View(viewModel: S1View.ViewModel(
-                            lesson: item.lesson,
-                            method: item.method1,
-                            navigator: navigator
-                        )),
-                    ]
-                    if let method2 = item.method2 {
-                        views.append(S2View(viewModel: S2View.ViewModel(
-                            lesson: item.lesson,
-                            method: method2,
-                            navigator: navigator
-                        )))
-                    }
-                    if let method3 = item.method3 {
-                        views.append(S3View(viewModel: S3View.ViewModel(
-                            lesson: item.lesson,
-                            method: method3,
-                            navigator: navigator
-                        )))
-                    }
-                    return views
-                }
-            }
     }
 }
 
 #Preview {
-    QaraLearningEngineView(plan: []) { _ in
+    QaraLearningEngineView(plan: [
+        .init(lesson: Lesson.mockS1(),
+              method1: S1Method.mock(),
+              method2: S2Method.mock(),
+              method3: S3Method.mock())
+    ]) { _ in
         
     }
 }

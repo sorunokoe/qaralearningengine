@@ -50,15 +50,17 @@ public struct FlowView: View {
             }
         }
         .task {
-            currentView = stepViews[currentIndex]
-            navigator.nextStep = {
-                if currentIndex < stepViews.count - 1 {
-                    withAnimation {
-                        currentIndex += 1
-                        currentView = stepViews[currentIndex]
+            if stepViews.count > currentIndex {
+                currentView = stepViews[currentIndex]
+                navigator.nextStep = {
+                    if currentIndex < stepViews.count - 1 {
+                        withAnimation {
+                            currentIndex += 1
+                            currentView = stepViews[currentIndex]
+                        }
+                    } else {
+                        onDidFinish(.success)
                     }
-                } else {
-                    onDidFinish(.success)
                 }
             }
         }
