@@ -37,9 +37,9 @@ public struct Example {
 public struct Word {
     var value: String
     var translation: String
-    var example: Example
+    var example: Example?
     
-    public init(value: String, translation: String, example: Example) {
+    public init(value: String, translation: String, example: Example? = nil) {
         self.value = value
         self.translation = translation
         self.example = example
