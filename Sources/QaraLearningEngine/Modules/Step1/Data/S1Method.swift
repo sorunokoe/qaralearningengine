@@ -7,10 +7,18 @@
 
 import Foundation
 
-struct S1Method {
+public struct S1Method {
     let voice: String
     let answer: String
     let variants: [String]
     let title: String
     let icon: String
+    
+    public init(voice: String, answer: String, variants: [String], title: String, icon: String) {
+        self.voice = voice
+        self.answer = answer
+        self.variants = variants
+        self.title = title
+        self.icon = icon
+    }
 }

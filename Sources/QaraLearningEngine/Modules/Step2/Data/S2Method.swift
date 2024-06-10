@@ -7,10 +7,30 @@
 
 import Foundation
 
-struct S2Method {
+public struct ImageVariant {
+    var id = UUID()
+    var text: String
+    var image: String
+    
+    public init(id: UUID = UUID(), text: String, image: String) {
+        self.id = id
+        self.text = text
+        self.image = image
+    }
+}
+
+public struct S2Method {
     let voice: String
     let answer: String
     let variants: [ImageVariant]
     let title: String
     let icon: String
+    
+   public init(voice: String, answer: String, variants: [ImageVariant], title: String, icon: String) {
+        self.voice = voice
+        self.answer = answer
+        self.variants = variants
+        self.title = title
+        self.icon = icon
+    }
 }

@@ -10,12 +10,6 @@ import Foundation
 
 extension S2Method {
     
-    struct ImageVariant {
-        var id = UUID()
-        var text: String
-        var image: String
-    }
-    
     static func mock() -> S2Method {
         return S2Method(voice: "",
                         answer: "Heart",
