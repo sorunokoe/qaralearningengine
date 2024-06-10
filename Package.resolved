@@ -1,0 +1,15 @@
+{
+  "originHash" : "7f64cb64d88f5072c29ffdbb0b26bf365aad0f2c428dd95faf7debc125a341a8",
+  "pins" : [
+    {
+      "identity" : "qaradesginsystem",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sorunokoe/QaraDesginSystem",
+      "state" : {
+        "branch" : "main",
+        "revision" : "4681389da0f61465c923c8b6cd945d148c985351"
+      }
+    }
+  ],
+  "version" : 3
+}
