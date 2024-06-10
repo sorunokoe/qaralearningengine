@@ -12,33 +12,69 @@ public enum FlowResult {
     case success, failed
 }
 
-struct NavigationView: View {
-    
+public struct LearningPlan {
+    let id: UUID = .init()
+    public let lesson: Lesson
+    public let method1: S1Method
+    public let method2: S2Method?
+    public let method3: S3Method?
+
+    public init(lesson: Lesson, method1: S1Method, method2: S2Method?, method3: S3Method?) {
+        self.lesson = lesson
+        self.method1 = method1
+        self.method2 = method2
+        self.method3 = method3
+    }
+}
+
+struct QaraLearningEngineView: View {
     private let navigator = DefaultNavigator()
+    @State private var stepViews: [any View] = []
     
+    private let plan: [LearningPlan]
     let onDidFinish: (FlowResult) -> Void
     
+    init(plan: [LearningPlan],
+         onDidFinish: @escaping (FlowResult) -> Void) {
+        self.plan = plan
+        self.onDidFinish = onDidFinish
+    }
+
     var body: some View {
-        FlowView(stepViews: [
-            S1View(viewModel: S1View.ViewModel(
-                lesson: Lesson.mockS1(),
-                method: S1Method.mock(),
-                navigator: navigator
-            )),
-            S2View(viewModel: S2View.ViewModel(
-                lesson: Lesson.mockS2(),
-                method: S2Method.mock(),
-                navigator: navigator
-            )),
-            S3View(viewModel: S3View.ViewModel(
-                lesson: Lesson.mockS3(),
-                method: S3Method.mock(),
-                navigator: navigator
-            )),
-        ], navigator: navigator, onDidFinish: onDidFinish)
+        FlowView(stepViews: stepViews, 
+                 navigator: navigator,
+                 onDidFinish: onDidFinish)
+            .onAppear {
+                self.stepViews = plan.flatMap { item in
+                    var views: [any View] = [
+                        S1View(viewModel: S1View.ViewModel(
+                            lesson: item.lesson,
+                            method: item.method1,
+                            navigator: navigator
+                        )),
+                    ]
+                    if let method2 = item.method2 {
+                        views.append(S2View(viewModel: S2View.ViewModel(
+                            lesson: item.lesson,
+                            method: method2,
+                            navigator: navigator
+                        )))
+                    }
+                    if let method3 = item.method3 {
+                        views.append(S3View(viewModel: S3View.ViewModel(
+                            lesson: item.lesson,
+                            method: method3,
+                            navigator: navigator
+                        )))
+                    }
+                    return views
+                }
+            }
     }
 }
 
 #Preview {
-    NavigationView(onDidFinish: {_ in  })
+    QaraLearningEngineView(plan: []) { _ in
+        
+    }
 }
