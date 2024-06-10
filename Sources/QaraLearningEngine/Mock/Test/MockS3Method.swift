@@ -11,7 +11,8 @@ import Foundation
 extension S3Method {
     
     static func mock() -> S3Method {
-        return S3Method(voice: "",
+        return S3Method(voice: "", 
+                        value: "Salem! Qalyn qalai?",
                         answer: "Hi! How are you?",
                         variants: ["Hi!", "doing?", "How", "are", "you?", "good"],
                         title: "Translate this sentence",

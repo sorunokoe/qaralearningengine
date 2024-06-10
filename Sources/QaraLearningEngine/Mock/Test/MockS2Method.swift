@@ -12,6 +12,7 @@ extension S2Method {
     
     static func mock() -> S2Method {
         return S2Method(voice: "",
+                        value: "Zhurek",
                         answer: "Heart",
                         variants: [ImageVariant(text: "Variant 1", image: "circle.hexagongrid.circle.fill"),
                                    ImageVariant(text: "Variant 2", image: "rectangle.3.group.fill"),

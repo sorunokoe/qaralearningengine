@@ -15,8 +15,9 @@ public struct S1Method {
     let title: String
     let icon: String
     
-    public init(voice: String, answer: String, variants: [String], title: String, icon: String) {
+    public init(voice: String, value: String, answer: String, variants: [String], title: String, icon: String) {
         self.voice = voice
+        self.value = value
         self.answer = answer
         self.variants = variants
         self.title = title

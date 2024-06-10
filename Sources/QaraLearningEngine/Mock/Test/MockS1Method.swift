@@ -9,7 +9,8 @@
 extension S1Method {
     
     static func mock() -> S1Method {
-        return S1Method(voice: "",
+        return S1Method(voice: "", 
+                        value: "Salem!",
                         answer: "Hi!",
                         variants: ["Good!", "Yes!", "Hi!"],
                         title: "Select the correct translation",
