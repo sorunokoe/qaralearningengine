@@ -26,7 +26,7 @@ public struct FlowView: View {
                     Image(systemName: "xmark")
                         .resizable()
                         .frame(width: 20, height: 20)
-                        .tint(.black)
+                        .tint(.primary)
                 })
                 Spacer()
                 QaraProgressView(progress: CGFloat(currentIndex)/CGFloat(stepViews.count),
