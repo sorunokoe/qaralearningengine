@@ -43,7 +43,6 @@ public struct S3View: StepView {
                     HStack(alignment: .center, spacing: 4) {
                         Text(viewModel.method.value)
                             .font(.system(size: 20, weight: .medium))
-                            .foregroundStyle(.black)
                             .onTapGesture {
                                 
                             }
